@@ -1,13 +1,13 @@
 # Set path to user /bin
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 
 # Path to user zsh configuration files
-export ZSH=$HOME/.dotconfig/zsh
+export ZSH=$HOME/.dotfiles/zsh
 
 # Directory for cache storage
-export ZSH_CACHE_DIR=$HOME/.dotconfig/zsh/cache
+export ZSH_CACHE_DIR=$HOME/.cache/zsh
 
 # Import variables
-[ -f "$ZSH/.variablesrc" ] && source $ZSH/.variablesrc
+[ -f "$ZSH/variables.sh" ] && source $ZSH/variables.sh
 
 

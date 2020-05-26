@@ -31,9 +31,12 @@ unset __CUSTOMIZATION_DIR
 __WIDGETS_DIR=$ZSH/lib/widgets
 
 [ -f "$__WIDGETS_DIR/fancy_ctrl_z.zsh" ] && source $__WIDGETS_DIR/fancy_ctrl_z.zsh
+#[ -f "$__WIDGETS_DIR/run_navi.zsh" ] && source $__WIDGETS_DIR/run_navi.zsh
 
-unset __WIDGETS_DIR
-#for widget_file ($ZSH/widgets/*.zsh); do
+source <(navi widget zsh)
+
+#for widget_file ($__WIDGETS_DIR/*.zsh); do
 #  [ -f "${widget_file}" ] && source $widget_file
 #done
 
+unset __WIDGETS_DIR

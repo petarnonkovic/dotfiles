@@ -18,7 +18,7 @@ setopt complete_in_word
 setopt complete_aliases
 setopt glob_complete
 setopt extended_glob
-setopt glob_dots
+#setopt glob_dots
 
 
 ### zstyle completions

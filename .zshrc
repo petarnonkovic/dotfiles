@@ -14,7 +14,9 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 zplug "zsh-users/zsh-autosuggestions"
 
-zplug "plugins/colored-man-pages",   from:oh-my-zsh
+zplug "plugins/colored-man-pages", from:oh-my-zsh
+
+zplug "denisidoro/navi", from:github
 
 zplug "zdharma/fast-syntax-highlighting"
 
@@ -49,7 +51,7 @@ zplug load
 source $ZSH/load_config.sh
 
 # Load fzf; TODO: add to zplug
-source $ZSH/plugins/fzf.zsh
+source $ZDOTDIR/plugins/fzf.zsh
 
 # Load all of the custom alias
 [ -f "$ZSH/.aliasrc" ] && source $ZSH/.aliasrc

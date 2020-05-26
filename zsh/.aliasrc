@@ -1,13 +1,12 @@
-# Shortcuts
-alias vi=vim
-alias nvi=nvim
-alias fdl='fd -l'
-alias y=yarn
-alias _=sudo
+# Rewrites
+alias fd='fdfind'
+alias _='sudo '
 alias sed='sed -E'
 alias less='less -R'
+
+# History
 alias h=history
-alias hsi='history | grep -i'
+alias hsi='history | grep'
 
 # Global shortcuts
 alias -g F='| fzf'
@@ -17,28 +16,36 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g B='| bat'
 
-# Edit configuration files
-alias dots='cd ~/.dotconfig/zsh'
+# Editor & configuration files
+alias vi=nvim
+alias dots='cd ~/.dotfiles'
+alias ddots='cd ~/.dotfiles/zsh'
 alias evim='vi ~/.vimrc'
-alias eshell='vi ~/.dotconfig/.zshrc'
-alias eenv='vi ~/.dotconfig/.zshenv'
+alias envim='vi ~/config/nvim/init.vim'
+alias eshell='vi ~/.dotfiles/.zshrc'
+alias eenv='vi ~/.dotfiles/.zshenv'
+alias ealias='vi ~/.dotfiles/zsh/.aliasrc'
 
 # Restart shell
-alias reload='source ~/.dotconfig/.zshrc'
-alias restart='exec -l "$SHELL"'
+alias reload='source ~/.dotfiles/.zshrc'
+alias restart='exec -l '$SHELL''
+
+# apt - package manager shell
+alias install='sudo apt install'
 
 # rsync copy with progress
 alias cpd='rsync -ahP $1 $2'
 
-# Remove & Reinstall project dependecies
-alias yolo="rm -rf node_modules/ && rm -f package-lock.json && yarn install"
-alias nolo="rm -rf node_modules/ && rm -f package-lock.json && npm install"
+# Package manager project
+alias y=yarn
+alias yolo='rm -rf node_modules/ && rm -f package-lock.json && yarn install'
+alias nolo='rm -rf node_modules/ && rm -f package-lock.json && npm install'
 
 ### Utilities
 alias myip='curl ifconfig.co'
-alias kernellist="sudo dpkg --list 'linux-image*'"
+alias kernellist='sudo dpkg --list "linux-image*"'
 # Local server
-alias localserve="clear && python3 -m http.server 3000"
+alias localserve='clear && python3 -m http.server 3000'
 
 # TODO: ack look/install
 if which ack-grep &> /dev/null; then
@@ -50,26 +57,28 @@ fi
 
 ### Git Aliases
 alias g=git
-alias ga="git add"
-alias gaa="git add ."
-alias gc="git commit -m"
-alias gb="git branch"
-alias gcb="git checkout -b"
-alias gdb="git branch -d"
-alias gcm="git checkout master"
-alias gf="git fetch"
-alias gp="git push origin $(git_current_branch)"
-alias gpl="git pull origin $(git_current_branch)"
-alias gm="git merge"
-alias gcl="git clone"
-alias gcld="git clone --depth 1"
-alias gdf="git diff"
-alias glog="git log --oneline --decorate --graph"
-alias gcf="git config --list"
-alias gls="git ls-files"
-alias glsg="git ls-files | grep -i"
-alias grv="git remote -v"
-alias gst="git status"
-alias gss="git status -s"
+alias ga='git add'
+alias gaa='git add .'
+alias gc='git commit -m'
+alias gb='git branch'
+alias gcb='git checkout -b'
+alias gdb='git branch -d'
+alias gcm='git checkout master'
+alias gf='git fetch'
+alias gp='git push origin $(git_current_branch)'
+alias gpl='git pull origin $(git_current_branch)'
+alias gm='git merge'
+alias gcl='git clone'
+alias gcld='git clone --depth 1'
+alias gdf='git diff'
+alias glog='git log --oneline --decorate --graph'
+alias gcf='git config --list'
+alias gls='git ls-files'
+alias glsg='git ls-files | grep -i'
+alias gr='git remote'
+alias grv='git remote -v'
+alias gra='git remote add'
+alias gs='git status'
+alias gss='git status -s'
 
 

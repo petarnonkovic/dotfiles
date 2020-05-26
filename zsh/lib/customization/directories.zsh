@@ -26,6 +26,7 @@ alias 8='cd -8'
 alias 9='cd -9'
 
 alias mkdir='mkdir -p'
+alias md='mkdir -p'
 alias rd=rmdir
 
 
@@ -49,7 +50,16 @@ compdef _dirs d
 
 # List directory contents
 alias ls='ls --color=auto'
-alias ll='ls -lh'
-alias la='ls -lhA'
+alias lr='ls -R'
+alias la='ls -A'
+alias ll='ls -lhA'
 alias lsa='ls -lha'
 alias ld='ls -d'
+
+
+# tree - directory listing
+alias tree='tree -C'
+alias treea='tree -al'
+alias treed='tree -dl'
+alias treel='tree -L'
+alias treef='tree -o'
