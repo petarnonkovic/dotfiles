@@ -1,13 +1,2 @@
-# Zsh completion-optimization dumpfile
-*zcompdump*
-
-# backup files and unfinished bin
-backup
-bin
-
-# no cached files
-cache/*
-cache
-
-.nvimlog
-
+dev/
+.zsh/functions

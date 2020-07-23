@@ -1,0 +1,63 @@
+{
+  "suggest.noselect": true,
+  "suggest.enablePreselect": true,
+  "suggest.disableMenuShortcut": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "typescript.tsx",
+    "json",
+    "graphql",
+    "html",
+    "css",
+    "scss",
+    "vue",
+    "Markdown"
+  ],
+  "coc.preferences.snippetStatusText": "snip",
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": false,
+  "prettier.disableSuccessMessage": true,
+  "eslint.enable": true,
+  "eslint.run": "onSave",
+  "eslint.options": {
+    "configFile": "/home/petarr/.dotfiles/.eslintrc.json"
+  },
+  "css.lint.vendorPrefix": "error",
+  "languageserver": {
+    "intelephense": {
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      }
+    }
+  },
+  "tsserver.enableJavascript": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "javascript": ["typescript"],
+    "typescript": ["javascript"]
+  },
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+  ],
+  "snippets.userSnippetsDirectory": "~/.config/nvim/",
+  "emmet.includeLanguages": {
+    "vue-html": "html"
+  },
+  "vetur.format.defaultFormatter.html": "prettier"
+}

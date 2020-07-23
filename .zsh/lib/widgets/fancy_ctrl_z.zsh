@@ -3,7 +3,7 @@
 # <Ctrl-Z> to switch vim/shell job control process bg/fg vim
 fancy-ctrl-z () {
   if [[ $BUFFER -eq 0 ]]; then
-    BUFFER='fg'
+    BUFFER=' fg'
     zle accept-line
   else
     zle push-input

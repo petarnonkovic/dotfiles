@@ -5,21 +5,6 @@ zmodload -i zsh/complist
 
 WORDCHARS=''
 
-### Completion options
-unsetopt menu_complete   # do not autoselect the first completion entry
-unsetopt flowcontrol
-
-setopt auto_menu         # show completion menu on successive tab press
-setopt always_to_end
-setopt auto_param_slash
-setopt auto_remove_slash
-setopt complete_in_word
-# TODO: test this option
-setopt complete_aliases
-setopt glob_complete
-setopt extended_glob
-#setopt glob_dots
-
 
 ### zstyle completions
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
@@ -42,7 +27,7 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
 # Complete . and .. special directories
-zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' special-dirs false
 
 # disable named-directories autocompletion
 zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
@@ -65,6 +50,3 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 
 # automatically load bash completion functions
 autoload -Uz bashcompinit && bashcompinit
-
-
-
