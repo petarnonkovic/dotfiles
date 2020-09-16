@@ -1,15 +1,13 @@
 " NVIM Main Configuration File {{{
 
-" Config files & root dir
+" Files list
 let g:nvim_config_root = stdpath('config')
 let g:config_file_list = [
-  \ 'variables.vim',
   \ 'options.vim',
   \ 'functions.vim',
   \ 'autocommands.vim',
   \ 'mappings.vim',
-  \ 'plugins.vim',
-  \ 'ui.vim'
+  \ 'plugins.vim'
 \]
 
 " Load config files

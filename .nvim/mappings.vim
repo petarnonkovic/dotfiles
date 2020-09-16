@@ -2,6 +2,7 @@
 
 " Remap ESC
 inoremap jk <ESC>
+xnoremap jk <ESC> 
 
 " activate spell-checking alternatives
 nnoremap <LocalLeader>s :set invspell spelllang=en<CR>
@@ -71,8 +72,7 @@ nnoremap <silent> Q :q!<CR>
 nnoremap <silent> <C-q> :qa<CR>
 
 " Quick vsplit new file
-nnoremap <silent> <Leader>n :vnew<CR>
-nnoremap <silent> <Leader>N :vnew<Space>
+nnoremap <silent> <Leader>n :vnew<Space>
 
 " Create file under cursor in vsplit
 nnoremap <Leader>fv :vsplit <cfile><CR>
@@ -87,7 +87,7 @@ nnoremap <silent> <Leader>ls :buffers!<CR>
 
 " Navigate buffers
 nnoremap <silent> <Leader>bn :bnext<CR>
-nnoremap <silent> <Leader>bn :bprev<CR>
+nnoremap <silent> <Leader>bp :bprev<CR>
 
 " Kill buffer
 nnoremap <silent> <Leader>bd :bd!<CR>

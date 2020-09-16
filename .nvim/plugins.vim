@@ -109,7 +109,7 @@ augroup END
 nnoremap <C-P> :FZF<CR>
 
 " Search files in load buffers
-nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>bs :Buffers<CR>
 
 " Search v:oldfiles and open buffers
 nnoremap <Leader>h :History<CR>
@@ -183,8 +183,8 @@ nnoremap <silent> <Leader>jd <Plug>( jsdoc )
 " NerdCommenter settings {{{
 
 " Remap Toggle Comment
-nnoremap <silent> <Leader>cp <Plug>NERDCommenterToggle
-vnoremap <silent> <Leader>cp <Plug>NERDCommenterToggle
+nmap <silent> <Leader>cp <Plug>NERDCommenterToggle
+vmap <silent> <Leader>cp <Plug>NERDCommenterToggle
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -229,11 +229,6 @@ let g:coc_filetype_map = {
 \ }
 
 " Use <Tab> for trigger completion and navigate to the next complete item
-" inoremap <silent><expr> <Tab>
-"   \ pumvisible() ? "\<C-n>" :
-"   \ functions#Check_back_space() ? "\<Tab>" :
-"   \ coc#refresh()
-
 inoremap <silent><expr> <Tab>
   \ pumvisible() ? coc#_select_confirm() :
   \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -331,3 +326,22 @@ nmap <LocalLeader>a  <Plug>(coc-codeaction)
 nnoremap <LocalLeader>f  <Plug>(coc-fix-current)
 
 "}
+
+" Colorscheme {{{
+
+if has('termguicolors')
+  set termguicolors
+endif
+
+if !has('gui_running')
+  set t_Co=256
+endif
+
+set background=dark
+
+" Theme
+colorscheme onehalfdark
+
+hi Quote ctermbg=109 guifg=#83a598
+
+}}}

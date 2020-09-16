@@ -1,2 +1,4 @@
 dev/
-.zsh/functions
+.zsh/functions/
+
+.bin/

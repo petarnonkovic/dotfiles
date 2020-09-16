@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
 
+
 ### Variables
+#=======================
 
 # Get out the SHORT hostname
 SHORT_HOST=${HOST/.*/}
@@ -11,15 +13,20 @@ ZSH_COMPDUMP="${ZSH_CACHE_DIR:-${HOME}}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 
 
 ### Functions
+#=======================
 
 function load_config_files() {
   typeset -a files
   files=($@)
   
   for file in ${files}; do
-    [ -f ${file} ] && source ${file}
+    [[ -f ${file} ]] && source ${file}
   done
 }
+
+
+### zShell paths
+#=======================
 
 # Set CDPATH
 typeset -gU cdpath
@@ -28,39 +35,51 @@ cdpath=(
   ~/Projects
 )
 
-# add a function path
+# Set FPATH 
 typeset -U fpath
 fpath=($ZSH/functions $fpath)
 
-# Autoload from path
+
+### Init autoloading
+#=======================
+
 autoload Uz compinit
 compinit -u -C -d "${ZSH_COMPDUMP}"
 
 
-### Config files
+### Load configuration files
+#=======================
 
+
+## Settings
 FILES=(
     $ZSH/lib/options.zsh
-    $ZSH/lib/settings.zsh
     $ZSH/lib/prompt.zsh
     $ZSH/lib/keybindings.zsh
     $ZSH/lib/functions.zsh
     $ZSH/lib/grep.zsh
-    $ZSH/lib/spectrum.zsh
     $ZSH/lib/completion.zsh
 )
 
 load_config_files ${FILES}
 
-unset FILES
+
+## Wigets
+
+# Widgets directory
+WIDGET_DIR=$ZSH/lib/widgets
+
+[[ -f ${WIDGET_DIR/fancy_ctrl_z.zsh} ]] && source ${WIDGET_DIR/fancy_ctrl_z.zsh}
 
 
-### Wigets files
+## Plugins 
 
-FILES=(
-  $ZSH/lib/widgets/fancy_ctrl_z.zsh
-)
+# FZF
+[[ -f ${HOME/.dotfiles/fzf.zsh} ]] && source ${HOME/.dotfiles/plugins/fzf.zsh}
 
-load_config_files ${FILES}
 
-unset FILES
+### Clean Up
+#=======================
+
+unset FILES WIDGET_DIR
+unfunction load_config_files

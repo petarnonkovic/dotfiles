@@ -1,35 +1,60 @@
 #!/usr/bin/env zsh
 
 
+
 ### Globals
+#=======================
 
 alias -g G='| egrep'
 alias -g L='| less'
 alias -g B='| bat'
 
-### Helpers
 
+
+### Helpers
+#=======================
+
+# Commands with default flags
+alias ls='ls --color=auto'
+alias mkdir='mkdir -p'
+alias fd=fdfind
+alias s=sudo
+alias sed='sed -E'
+alias tree='tree -C'
+alias less='less -R'
+alias vi=nvim
+
+# rsync copy with progress
+alias cpd='rsync -ahP $1 $2'
+
+# Quit with qq
 alias qq='exit'
 
+# Open config file for editing
+alias evi='nvim ~/.dotfiles/.nvim/init.vim'
+alias esh='nvim ~/.dotfiles/.zsh/.zshrc'
+alias eenv='nvim ~/.dotfiles/.zsh/.zshenv'
+alias efn='nvim ~/.dotfiles/.zsh/lib/functions.zsh'
+alias eal='nvim ~/.dotfiles/.zsh/aliasrc.zsh'
+
+
+
 ### History
+#=======================
 
 alias h=history
 alias hsi='history | egrep'
 
-### Edit configuration files
 
-alias evi='nvim ~/.dotfiles/.nvim/init.vim'
-alias esh='nvim ~/.dotfiles/.zsh/.zshrc'
-alias eenv='nvim ~/.dotfiles/.zsh/.zshenv'
-alias eev='nvim ~/.dotfiles/.zsh/variables.zsh'
-alias efn='nvim ~/.dotfiles/.zsh/lib/functions.zsh'
-alias eal='nvim ~/.dotfiles/.zsh/aliasrc.zsh'
 
 ### Directories
+#=======================
 
+# Create/Remove directory
 alias md=mkdir
 alias rd=rmdir
 
+# Quick directory change
 alias d='dirs -v | head -10'
 alias ...=../..
 alias -- -='cd -'
@@ -43,8 +68,8 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 
+# Directory with codes
 alias dw='cd ~/webdev && tree -dL 1'
-alias dwp='cd ~/webdev/partials && tree -dL 1'
 
 # Config directory jump
 alias ddot='cd ~/.dotfiles'
@@ -67,7 +92,10 @@ alias trel='tree -aL'
 alias treff='tree --ignore-case -aP'
 alias treffa='tree --ignore-case --match-dirs --prune -aP'
 
+
+
 ### Package Manager
+#=======================
 
 # apt-get
 alias install='sudo apt-get install'
@@ -77,15 +105,15 @@ alias purge='sudo apt-get purge'
 # alias autoremove='sudo apt-get autoremove --purge'
 # alias clean='sudo apt-get autoclean && sudo apt-get clean'
 
-# rsync copy with progress
-alias cpd='rsync -ahP $1 $2'
-
 # npm & yarn
 alias y=yarn
 alias yolo='rm -rf node_modules/ && rm -f package-lock.json && yarn install'
 alias nolo='rm -rf node_modules/ && rm -f package-lock.json && npm install'
 
+
+
 ### Utilities
+#=======================
 
 alias snapsize='sudo du -h /var/lib/snapd/snaps'
 
@@ -117,7 +145,9 @@ alias kernellist='sudo dpkg --list "linux-image*"'
 alias ppalist='egrep -v "^#|^ *$" /etc/apt-get/sources.list /etc/apt-get/sources.list.d/*'
 
 
+
 ### Git Aliases
+#=======================
 
 alias g=git
 alias ga='git add'
@@ -143,5 +173,3 @@ alias grv='git remote -v'
 alias gra='git remote add'
 alias gs='git status'
 alias gss='git status -s'
-
-

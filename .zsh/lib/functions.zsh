@@ -1,35 +1,59 @@
 #!/usr/bin/env zsh
 
 
-# Open Projects dir and list directories
-# or open specific project
+###############################
+
+# User defined functions
+
+###############################
+
+
+
+
+### Find project dir in ~/Projects
+############################################
+#
+## Usage:  dp [project-dir]
+#
+
 function dp() {
   local basedir="$HOME/Projects"
-  local projectdir
-
+  
+  # Check if param exist
   if [[ $# -gt 0 ]]; then
-    projectdir="${basedir}/$1"
-    if [[ -d "${projectdir}" ]]; then
-      cd "${projectdir}"
+    
+    # If directory exists, jump to it
+    if [[ -d "${basedir}/$1" ]]; then
+      cd "${basedir}/$1"
       return 0
     fi
+    
   fi
+  
+  # GoTo basedir and list directories
   cd "${basedir}"
   tree -dL 1
 }
 
-# Create & Enter directory
+
+### Create & Enter directory
+############################################
+
 function mdcd() {
   mkdir -p $@ && cd ${@:$#}
   #mkdir -p $@ && cd "$_"
 }
 
 # Show zsh usage stats
+############################################
+
 function zsh_stats() {
   fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
 
 ### Man pages colorized output
+############################################
+
 function colored() {
   command env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -46,6 +70,8 @@ function colored() {
 }
 
 # Colorize man and dman/debman (from debian-goodies)
+############################################
+
 function man \
   dman \
   debman {
@@ -53,6 +79,7 @@ function man \
 }
 
 ### System clipboard integration
+############################################
 #
 #
 # clipcopy - Copy data to clipboard
@@ -64,6 +91,7 @@ function man \
 #  clipcopy <file>         - copies a file's contents to clipboard
 #
 ##
+
 function clipcopy() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
 
 # clippaste - "Paste" data from clipboard to stdout
@@ -76,4 +104,5 @@ function clipcopy() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
 #
 #   clippaste > <file>      - paste contents to a file
 ##
+
 function clippaste() { xclip -out -selection clipboard; }

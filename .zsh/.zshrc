@@ -33,20 +33,18 @@ fi
 #zplug load --verbose
 zplug load
 
-### Config files from lib/
-source $ZSH/lib/z_init.sh
-
-# Load all of the custom alias
+# User aliases
 source $ZSH/aliasrc.zsh
 
-# Load fzf
-source $PLUGPATH/fzf.zsh
+### User configuration files
+source $ZSH/lib/z_init.sh
 
 # Load nvim
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# Hook direnv
+
+# TODO:  Hook direnv
 # direnv is an extension for your shell. 
 # It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
 #eval "$(direnv hook zsh)"
